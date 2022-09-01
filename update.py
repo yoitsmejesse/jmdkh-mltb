@@ -1,6 +1,5 @@
 from logging import FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info
 from os import path as ospath, environ, remove
-from platform import machine
 from subprocess import run as srun
 from requests import get as rget
 from dotenv import load_dotenv
@@ -43,7 +42,7 @@ try:
     if len(UPSTREAM_BRANCH) == 0:
        raise TypeError
 except:
-    UPSTREAM_BRANCH = 'master'
+    UPSTREAM_BRANCH = 'heroku'
 try:
     if len(BOT_VERSION) == 0:
        raise TypeError
@@ -68,7 +67,7 @@ else:
     log_error('Something went wrong while updating, check UPSTREAM_REPO if valid or not!')
 
 try:
-    res = rget(f"https://github.com/junedkh/jmdkh-mltb/releases/{BOT_VERSION}/download/jmdkh_mtlb_{machine()}.zip")
+    res = rget(f"https://github.com/junedkh/jmdkh-mltb/releases/{BOT_VERSION}/download/jmdkh_mtlb_heroku.zip")
     if res.status_code == 200:
         log_info("Downloading important files....")
         with open('jmdkh.zip', 'wb+') as f:

@@ -32,5 +32,6 @@ class _BotCommands:
         self.SetThumbCommand = f'setthumb{CMD_INDEX}'
         self.BtSelectCommand = f'btsel{CMD_INDEX}'
         self.RmdbCommand = f'rmdb{CMD_INDEX}'
+        self.SleepCommand = f'sleep{CMD_INDEX}'
 
 BotCommands = _BotCommands()

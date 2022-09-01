@@ -11,7 +11,7 @@ def shell(update, context):
     cmd = message.text.split(maxsplit=1)
     if len(cmd) == 1:
         return message.reply_text('No command to execute was given.', parse_mode='HTML')
-    cmd = cmd[1]
+    cmd = cmd[1].strip()
     process = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
     stdout, stderr = process.communicate()
     reply = ''
